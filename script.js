@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Function to get the value of a cookie by name
   function getCookie(name) {
+    console.log(document.cookie)
     let cookieArray = document.cookie.split('; ');
     let cookie = cookieArray.find((row) => row.startsWith(name + '='));
     return cookie ? cookie.split('=')[1] : null;
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // 4. Display the count on the webpage
 
   let count=getCookie("count")
+  count=+count
   if(count){
     setCookie("count",count+1,1)
   }
@@ -29,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   countDisplay=document.getElementById("countDisplay")
-  console.log(count)
   console.log(getCookie("count"))
   countDisplay.innerHTML=count
   // your code here
